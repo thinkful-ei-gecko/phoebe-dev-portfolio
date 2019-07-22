@@ -1,1 +1,0 @@
-# shiningjustice.github.io
