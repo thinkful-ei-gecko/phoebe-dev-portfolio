@@ -1,9 +1,9 @@
 # Portfolio Review: Initial Completion Checklist
 
-## Student’s name: 
-## PM name: 
+## Student’s name: Phoebe Law
+## PM name: Austen Weinhart
 
-## Portfolio url:
+## Portfolio url: https://shiningjustice.github.io/
 
 - [ ] High Level Basics
   - [ ] mobile-first design 
