@@ -6,6 +6,7 @@ $font-stack-3: 'Open Sans', sans serif;
 $box-outline: 1pt black dashed;
 $box-padding: .5rem .8rem;
 $box-margin: 0;
+$box-child-background: grey;
 
 //brighter-colorful https://coolors.co/052f5f-005377-06a77d-d5c67a-f1a208
 $color-1: #052F5F;
@@ -69,6 +70,8 @@ main {
 }
 
 //----BY STRUCTURE----
+
+//nav bar
 nav {
   position: sticky;
   top: 0;
@@ -100,12 +103,16 @@ nav {
   margin-left:-75px;
 }
 
+//main about
 .section--display--about1 {
   em {
     font-family: $font-stack-2;
     font-size: 1.15rem;
     font-weight: 600;
     font-style: italic;
+  }
+  section {
+    background: $box-child-background;
   }
 }
 .p--open--about2 {
@@ -120,13 +127,50 @@ nav {
 .p--style--tDecoration {
   text-decoration: line-through;
 }
-
+.section--display--about2 {
+  background-color: $box-child-background;
+}
 .a--display--vertical {
   float: right;
 }
 
+//work
+.div--style--box {
+  padding: $box-padding;
+  margin: $box-margin;
+  background-color: $box-child-background;
+  outline: $box-outline;
+}
+
+//contact
+ul.fa-li li:before {
+  font-family: 'FontAwesome';
+  content: '\f564';
+  margin:0 5px 0 -15px;
+}
 
 //----BY ATTRIBUTE----
+.anchor {
+  position: relative;
+  outline: 1pt green solid;
+  height: 70px;
+  display: inline-block;
+}
+
+.anchor a {
+  position: absolute;
+  left: 0px;
+  top: -70px;
+  border: solid 1px red;
+}
+
+.anchor .target-label { 
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  margin: 0;
+}
+
 h1, h2 {
   font-family: $font-stack-2;  
 }
@@ -138,4 +182,8 @@ h3 {
 
 .fas {
   font-size: .8rem;
+}
+
+section {
+  min-height: 100vh;
 }
