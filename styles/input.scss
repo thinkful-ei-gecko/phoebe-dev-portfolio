@@ -1,0 +1,141 @@
+// VARIABLES
+$font-stack-1: 'Cantata One', sans-serif;
+$font-stack-2: 'Cutive Mono', sans-serif;
+$font-stack-3: 'Open Sans', sans serif;
+
+$box-outline: 1pt black dashed;
+$box-padding: .5rem .8rem;
+$box-margin: 0;
+
+//brighter-colorful https://coolors.co/052f5f-005377-06a77d-d5c67a-f1a208
+$color-1: #052F5F;
+$color-2: #005377;
+$color-3: #06A77D;
+$color-4: #D5C67A;
+$color-5: #F1A208;
+//darker-colorful https://coolors.co/052f5f-007596-06aa74-e0d184-c47c00
+// @color-1: #052F5F;
+// @color-2: #007596;
+// @color-3: #06aa74;
+// @color-4: #e0d184;
+// @color-5: #c47c00;
+//greyscale https://coolors.co/f2f2f2-f2f2f2-bfbfbf-8c8c8c-737373
+// @color-1: #F2F2F2;
+// @color-2: #F2F2F2;
+// @color-3: #BFBFBF;
+// @color-4: #8C8C8C;
+// @color-5: #737373;
+//darker-greyscale https://coolors.co/0d0d0d-404040-737373-a6a6a6-f2f2f2
+// @color-1: #0d0d0d;
+// @color-2: #404040;
+// @color-3: #737373;
+// @color-4: #a6a6a6;
+// @color-5: #f2f2f2;
+//warm-colors https://coolors.co/402b23-8c3030-56736d-bfd9d6-95bfbb
+// @color-1: #402b23;
+// @color-2: #8c3030;
+// @color-3: #56736d;
+// @color-4: #bfd9d6;
+// @color-5: #95bfbb;
+//cold-warm-colors https://coolors.co/244035-734e39-485958-7b848c-bfada8
+// @color-1: #244035;
+// @color-2: #734e39;
+// @color-3: #485958;
+// @color-4: #7b848c;
+// @color-5: #bfada8;
+
+//EXTEND/INHERITANCE
+// %reset-ul {
+
+// }
+
+//ACTUAL CSS
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  * {
+    font-family: $font-stack-3
+  }
+  
+}
+
+main {
+  padding: 10px;
+}
+
+//----BY STRUCTURE----
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    a {
+      display: block;
+      color: white;
+      font-family: $font-stack-2;
+      text-align: center;
+      padding: 10px 16px;
+      text-decoration: none;
+    }
+  }
+}
+.li--width--contain {
+  position: fixed;
+  top: 0; left: 50%;
+  width: 150px;
+  margin-left:-75px;
+}
+
+.section--display--about1 {
+  em {
+    font-family: $font-stack-2;
+    font-size: 1.15rem;
+    font-weight: 600;
+    font-style: italic;
+  }
+}
+.p--open--about2 {
+  display: inline-block;
+  font-family: $font-stack-2;
+  font-style: italic;
+  font-weight: 600;
+  outline: $box-outline;
+  padding: $box-padding;
+  margin: $box-margin;
+}
+.p--style--tDecoration {
+  text-decoration: line-through;
+}
+
+.a--display--vertical {
+  float: right;
+}
+
+
+//----BY ATTRIBUTE----
+h1, h2 {
+  font-family: $font-stack-2;  
+}
+
+h3 {
+  font-family: $font-stack-2;
+  font-style: italic;
+}
+
+.fas {
+  font-size: .8rem;
+}

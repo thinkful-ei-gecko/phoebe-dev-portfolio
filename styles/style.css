@@ -1,3 +1,88 @@
+* {
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0;
+  padding: 0;
+}
+body * {
+  font-family: "Open Sans", sans serif;
+}
+
+main {
+  padding: 10px;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #333;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+nav ul a {
+  display: block;
+  color: white;
+  font-family: "Cutive Mono", sans-serif;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
+.li--width--contain {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 150px;
+  margin-left: -75px;
+}
+
+.section--display--about1 em {
+  font-family: "Cutive Mono", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.p--open--about2 {
+  display: inline-block;
+  font-family: "Cutive Mono", sans-serif;
+  font-style: italic;
+  font-weight: 600;
+  outline: 1pt black dashed;
+  padding: 0.5rem 0.8rem;
+  margin: 0;
+}
+
+.p--style--tDecoration {
+  text-decoration: line-through;
+}
+
+.a--display--vertical {
+  float: right;
+}
+
+h1, h2 {
+  font-family: "Cutive Mono", sans-serif;
+}
+
+h3 {
+  font-family: "Cutive Mono", sans-serif;
+  font-style: italic;
+}
+
+.fas {
+  font-size: 0.8rem;
+}
 
 /*# sourceMappingURL=style.css.map */
