@@ -6,50 +6,58 @@ const portfolio = (function () {
   //calls the renderHeader() function to start the chain to run the page
   const render = function () {
     console.log('render ran');
-    $('.section--input--inFlux').html(`
-      <section class="section section--display--about1">
-        <div class="anchor">
-          <a id="about">&nbsp;</a>
-          <h1 class="h1 target-label">hello world</h1>
-        </div>
-        <img src="https://via.placeholder.com/300x300">
-        <p>I'm <em>Phoebe Law</em>,</br>
-        <em>Junior Full-stack Javascript Developer</em>.</p>
-        <p>I love making beautifully functional (and functionally beautiful) things.</p>
-        <p class="p p--open--about2 p--style--italic">More <i class="fas fa-chevron-down"></i></p>
-        <section class="section section--display--about2"></section>
-        <h2>My skills include:</h2>
-        <ul>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>Javascript</li>
-        </ul>
-      </section>
+    generateMainHtml();
+  };
 
-      <section class="section section--display--projects">
+  const generatePhoto = function () {
+    let index = Math.floor(Math.random() * (store.photos.length-1));
+    return store.photosUrls[index];
+  };
+
+  const generateProjects = function () {};
+
+  const generateMainHtml = function () {
+    $('.section--display--add').html(`
+    <section class="section section--display--about1">
       <div class="anchor">
-        <a name="my-projects">&nbsp;</a>
-        <h2 class="target-label">My Projects</h2>
+        <a id="about">&nbsp;</a>
+        <h1 class="h1 target-label">hello world</h1>
       </div>
-        <div class="div div--style--box">
-          <h3>Quiz App: Bootcamp Trivia for Parents</h3>
-          <div class="div div--display--toggle"></div>
-        </div>
-      </section>
+      <img src="${store.photosUrls[generateMainHtml()]}">
+      <p>I'm <em>Phoebe Law</em>,</br>
+      <em>Junior Full-stack Javascript Developer</em>.</p>
+      <p>I love making beautifully functional (and functionally beautiful) things.</p>
+      <p class="p p--open--about2 p--style--italic">More <i class="fas fa-chevron-down"></i></p>
+      <section class="section section--display--about2"></section>
+      <h2>My skills include:</h2>
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+      </ul>
+    </section>
 
-      <section class="section section--display--contact" id="Contact">
-        <h2>Help Yourself to Some Connects</h2>
-        <ul class="fa-li">
-          <li><span class="fa-li"><i class="fas fa-cookie-bite"></i></span>LinkedIn</li>
-          <li><span class="fa-li"><i class="fas fa-cookie-bite"></i></span>Github</li>
-          <li><span class="fa-li"><i class="fas fa-cookie-bite"></i></span>phoebebasilio@gmail.com</li>
-        </ul>
-      </section>
-    `);
+    <section class="section section--display--projects">
+    <div class="anchor">
+      <a name="my-projects">&nbsp;</a>
+      <h2 class="target-label">My Projects</h2>
+    </div>
+    <div class="div div--display--add"></div>
+    </section>
+
+    <section class="section section--display--contact" id="Contact">
+      <h2>Help Yourself to Some Connects</h2>
+      <ul class="fa-li">
+        <li><span class="fa-li"><i class="fas fa-cookie-bite"></i></span>LinkedIn</li>
+        <li><span class="fa-li"><i class="fas fa-cookie-bite"></i></span>Github</li>
+        <li><span class="fa-li"><i class="fas fa-cookie-bite"></i></span>phoebebasilio@gmail.com</li>
+      </ul>
+    </section>
+  `);
   };
 
   const handleAbout2 = function () {
-    $('.section--input--inFlux').on('click', '.p--open--about2', function () {
+    $('.section--display--add').on('click', '.p--open--about2', function () {
       console.log('handleAbout2 ran');
       toggleDisplayAbout2();
       if ($('.section--display--about2').hasClass('display')) {
@@ -84,25 +92,40 @@ const portfolio = (function () {
   };
 
   const handleProjectExpanded = function () {
-    $('.section--input--inFlux').on('click', '.div--style--box', function () {
+    $('.section--display--add').on('click', '.div--style--box', function () {
 
     });
   };
 
+  //incomplete pbtag
   const toggleDisplayProjectExpanded = function () {};
 
-  const renderProjectExpanded = function () {
-    $('.p--display--toggle').html(`
-    <p>This app was made with Badri Narayana. I believe that fun is one of the most effective ways to learn, and since my parents only had a fuzzy idea of what I was doing with my life, I wanted to make this for and because of them; a way to start off a new career with love to those that have loved me a lot.<p>
-    <div><a href="https://thinkful-ei-gecko.github.io/badri-phoebe-day-5/">Live Site</a></div>
-    <div><a href="https://github.com/thinkful-ei-gecko/badri-phoebe-day-5">Github</a></div>
-  `);
+  //loop through and run thru html function 
+  const renderProjects = function () {
+    const projectHtml = 
+    $('.div--display--add').html()
+  }; 
+
+  const generateProjectString = function () {
+    store.projects
+  }; 
+
+  const generateProjectHtml = function (title, subtitle, description, skillsApplied, liveSiteUrl, githubUrl) {
+    $('.div--display--add').html(`
+      <h3>${title}: <span>${subtitle}</h3>
+      <div class="div div--display--toggle">
+        <p>${description}<p>
+        <div>${skillsApplied}</div>
+        <div><a href="${liveSiteUrl}">Live Site</a></div>
+        <div><a href="${githubUrl}">Github</a></div>
+      </div>
+    `);
   };
 
   return {
     render,
     handleAbout2,
-    handleProject
+    handleProjectExpanded
   };
 })();
 

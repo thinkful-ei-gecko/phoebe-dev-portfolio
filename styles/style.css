@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
 }
@@ -53,6 +54,9 @@ nav ul a {
   font-weight: 600;
   font-style: italic;
 }
+.section--display--about1 section {
+  background: grey;
+}
 
 .p--open--about2 {
   display: inline-block;
@@ -68,8 +72,46 @@ nav ul a {
   text-decoration: line-through;
 }
 
+.section--display--about2 {
+  background-color: grey;
+}
+
 .a--display--vertical {
   float: right;
+}
+
+.div--style--box {
+  padding: 0.5rem 0.8rem;
+  margin: 0;
+  background-color: grey;
+  outline: 1pt black dashed;
+}
+
+ul.fa-li li:before {
+  font-family: "FontAwesome";
+  content: "";
+  margin: 0 5px 0 -15px;
+}
+
+.anchor {
+  position: relative;
+  outline: 1pt green solid;
+  height: 70px;
+  display: inline-block;
+}
+
+.anchor a {
+  position: absolute;
+  left: 0px;
+  top: -70px;
+  border: solid 1px red;
+}
+
+.anchor .target-label {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  margin: 0;
 }
 
 h1, h2 {
@@ -83,6 +125,10 @@ h3 {
 
 .fas {
   font-size: 0.8rem;
+}
+
+section {
+  min-height: 100vh;
 }
 
 /*# sourceMappingURL=style.css.map */
