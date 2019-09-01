@@ -6,24 +6,21 @@ const portfolio = (function () {
   //calls the renderHeader() function to start the chain to run the page
   const render = function () {
     console.log('render ran');
-    generateMainHtml();
+    renderMainHtml();
+    renderPhoto();
+    renderProjects();
   };
 
-  const generatePhoto = function () {
-    let index = Math.floor(Math.random() * (store.photos.length-1));
-    return store.photosUrls[index];
-  };
-
-  const generateProjects = function () {};
-
-  const generateMainHtml = function () {
+  const renderMainHtml = function () {
+    console.log('renderMainHtml ran');
     $('.section--display--add').html(`
     <section class="section section--display--about1">
       <div class="anchor">
         <a id="about">&nbsp;</a>
         <h1 class="h1 target-label">hello world</h1>
       </div>
-      <img src="${store.photosUrls[generateMainHtml()]}">
+      <!-- replace the following div later with that image -->
+      <div class="div div--display--add"></div>
       <p>I'm <em>Phoebe Law</em>,</br>
       <em>Junior Full-stack Javascript Developer</em>.</p>
       <p>I love making beautifully functional (and functionally beautiful) things.</p>
@@ -54,6 +51,53 @@ const portfolio = (function () {
       </ul>
     </section>
   `);
+  };
+
+  const renderPhoto = function () {
+    console.log('renderPhoto ran');
+    let photoUrl = generatePhoto();
+    $('.div--display--add').html(`
+      <img src=${photoUrl} alt="Photo of Phoebe Law">
+    `);
+  };
+
+  const generatePhoto = function () {
+    let index = Math.floor(Math.random() * (store.photosUrls.length-1));
+    return store.photosUrls[index];
+  };
+
+  const renderProjects = function () {
+    console.log('renderProjects ran');
+    const projectHtml = generateProjectString(store.projects);
+    $('.div--display--add').html(projectHtml);
+  }; 
+
+  const generateProjectString = function (projects) {
+    console.log('generateProjectString ran');
+    const projectString = [];
+    store.projects.forEach(project => {
+      generateProjectHtml(project[name], project[subtitle], project[imageUrl], project[description], project[skillsApplied], project[liveSiteUrl], project[githubUrl]);
+      //not sure why it says that subtitle isn't defined; i double checked the variables and they're all written correctly both in this function and the next one and it matches the store.project. when i console.log the arry it returns an empty one. if i console.log within this for each loop project[name] itd oesn't return anything but if i do project['name'] it returns something, but it's an empty thing. Idk
+      projectString.push();
+    });
+    console.log(projectString);
+    return projectString.join('');
+  }; 
+
+  const generateProjectHtml = function (name, subtitle, imageUrl, description, skillsApplied, liveSiteUrl, githubUrl) {
+    console.log('generateProjectHtml ran');
+    return  `
+      <div>
+        <img src="${imageUrl} alt="A screenshot of phoebe's ${name} project">
+        <h3>${name}: <span>${subtitle}</span></h3>
+        <div class="div div--display--toggle">
+          <p>${description}<p>
+          <div>${skillsApplied}</div>
+          <div><a href="${liveSiteUrl}">Live Site</a></div>
+          <div><a href="${githubUrl}">Github</a></div>
+        </div>
+      </div>
+    `;
   };
 
   const handleAbout2 = function () {
@@ -100,27 +144,7 @@ const portfolio = (function () {
   //incomplete pbtag
   const toggleDisplayProjectExpanded = function () {};
 
-  //loop through and run thru html function 
-  const renderProjects = function () {
-    const projectHtml = 
-    $('.div--display--add').html()
-  }; 
 
-  const generateProjectString = function () {
-    store.projects
-  }; 
-
-  const generateProjectHtml = function (title, subtitle, description, skillsApplied, liveSiteUrl, githubUrl) {
-    $('.div--display--add').html(`
-      <h3>${title}: <span>${subtitle}</h3>
-      <div class="div div--display--toggle">
-        <p>${description}<p>
-        <div>${skillsApplied}</div>
-        <div><a href="${liveSiteUrl}">Live Site</a></div>
-        <div><a href="${githubUrl}">Github</a></div>
-      </div>
-    `);
-  };
 
   return {
     render,
