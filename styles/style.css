@@ -1,8 +1,24 @@
-@charset "UTF-8";
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f2f2f2;
+}
+body * {
+  font-family: "Open Sans", sans serif;
+}
+
+main {
+  padding: 10px;
+}
+
 nav {
   position: sticky;
   top: 0;
-  background-color: #333;
+  background-color: #0d0d0d;
   opacity: 1;
   z-index: 1;
 }
@@ -19,7 +35,7 @@ nav ul {
 }
 nav ul a {
   display: block;
-  color: white;
+  color: #f2f2f2;
   font-family: "Cutive Mono", sans-serif;
   text-align: center;
   padding: 10px 16px;
@@ -43,8 +59,12 @@ nav ul a {
   font-weight: 600;
   font-style: italic;
 }
+.section--display--about1 em:hover {
+  color: #e0d184;
+  font-size: 1.5em;
+}
 .section--display--about1 section {
-  background: grey;
+  background: #bdbdbd;
 }
 
 .p--open--about2 {
@@ -52,8 +72,8 @@ nav ul a {
   font-family: "Cutive Mono", sans-serif;
   font-style: italic;
   font-weight: 600;
-  outline: 1pt black dashed;
-  padding: 0.5rem 0.8rem;
+  outline: 1pt #0d0d0d dashed;
+  padding: 0.8rem 0.8rem;
   margin: 0;
 }
 
@@ -62,7 +82,12 @@ nav ul a {
 }
 
 .section--display--about2 {
-  background-color: grey;
+  background-color: #bdbdbd;
+  margin: 0 0 20px 0;
+  padding: 1rem;
+}
+.section--display--about2 h2 {
+  margin: 0;
 }
 
 .a--display--vertical {
@@ -72,16 +97,10 @@ nav ul a {
 .project-button {
   padding: 0.8rem 0.8rem;
   margin: 0 0 1rem 0;
-  outline: 1pt black dashed;
+  outline: 1pt #0d0d0d dashed;
   position: relative;
   overflow: hidden;
   text-align: center;
-}
-
-.img--size--fit {
-  display: inline;
-  max-height: 100%;
-  max-width: 100%;
 }
 
 .h3--justifyAlign--center {
@@ -93,35 +112,38 @@ nav ul a {
 
 .div--display--toggle {
   padding: 0.8rem;
-  background-color: grey;
+  background-color: #bdbdbd;
 }
 
-ul.fa-li li:before {
-  font-family: "FontAwesome";
-  content: "";
-  margin: 0 5px 0 -15px;
+.div--justify--spaceAround {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 0 20px 0;
 }
 
-* {
-  box-sizing: border-box;
+#contact {
+  min-height: 100vh;
 }
 
-body {
-  margin: 0;
-  padding: 0;
+ul.fa-ul {
+  list-style-type: none;
 }
-body * {
-  font-family: "Open Sans", sans serif;
+ul.fa-ul a {
+  text-decoration: none;
+  color: #737373;
 }
-
-main {
-  padding: 10px;
+ul.fa-ul li {
+  padding: 0 0 10px 0;
+}
+ul.fa-ul li:hover {
+  color: #e0d184;
 }
 
 .anchor {
-  position: relative;
+  height: 3.2rem;
   width: 100%;
-  height: 2rem;
+  padding: 1rem 0 0 0;
+  position: relative;
   display: inline-block;
 }
 
@@ -150,12 +172,93 @@ h3 {
   font-size: 0.8rem;
 }
 
-section {
-  min-height: 100vh;
-}
-
 .hidden {
   display: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+a:hover, nav.a--display--vertical:hover, a:hover, .project-button:hover, .p--open--about2:hover {
+  color: #e0d184;
+  transform: translate(2px, 2px);
+}
+
+a, nav.a--display--vertical, .project-button, .p--open--about2 {
+  color: #737373;
+}
+
+@media screen and (min-width: 425px) {
+  nav ul {
+    height: 40px;
+  }
+
+  .anchor a {
+    top: -40px;
+  }
+
+  .li--width--contain {
+    display: none;
+  }
+}
+@media screen and (min-width: 1024px) {
+  nav {
+    position: sticky;
+    top: 0;
+    padding: 0 0 0 0;
+    background-color: #0d0d0d;
+    opacity: 1;
+    z-index: 1;
+  }
+  nav ul {
+    list-style-type: none;
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    overflow: hidden;
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  nav ul a {
+    display: block;
+    color: #f2f2f2;
+    font-family: "Cutive Mono", sans-serif;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+  }
+
+  .li--width--contain {
+    display: inline;
+    position: fixed;
+    margin-left: 0;
+    top: 0;
+    left: 0;
+  }
+
+  main {
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  .anchor {
+    height: 5rem;
+  }
+
+  ul.fa-ul {
+    margin: 0 0 0 20px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

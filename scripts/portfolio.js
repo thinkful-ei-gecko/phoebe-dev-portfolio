@@ -14,6 +14,8 @@ const portfolio = (function () {
   const renderMainHtml = function () {
     console.log('renderMainHtml ran');
     $('.section--display--add').html(`
+    
+    <!-- ABOUT ME 1/2 -->
     <section class="section section--display--about1">
       <div class="anchor">
         <a id="about">&nbsp;</a>
@@ -25,7 +27,9 @@ const portfolio = (function () {
       <em>Junior Full-stack Javascript Developer</em>.</p>
       <p>I love making beautifully functional (and functionally beautiful) things.</p>
       <p class="p p--open--about2 p--style--italic">More <i class="fas fa-chevron-down"></i></p>
-      <section class="section section--display--about2 hidden">
+    
+      <!-- ABOUT ME 2/2 -->
+      <section class="section section--display--about2 .div--justify--spaceAround hidden">
         <h2>Who am I?</h2>
         <p class="p--style--tDecoration">24601</p>
         <h3>tl;dr</h3>
@@ -36,6 +40,7 @@ const portfolio = (function () {
         <p>The first time the parallel between what I did and what I could do clicked was when I was organizing my many incoming emails with rules. I was making it very specialized, where ordering rules mattered and one small selection had many big effects. The thought process was a lot like symbolic logic I learned in college, but practically applied (I always thought symbolic logic was mostly useful for people taking the LSAT/law careers). My degree in Linguistics gave me an idea of what programming would be like, and though then it was just a small idea, I thought: “Huh. I can actually do this. And it can be just as practical as what I am doing now.”</p>          
         <p>So I did.</p>
         </section>
+        
       <h2>My skills include:</h2>
       <ul>
         <li>HTML</li>
@@ -44,6 +49,7 @@ const portfolio = (function () {
       </ul>
     </section>
 
+    <!-- MY PROJECTS -->
     <section class="section section--display--projects">
     <div class="anchor">
       <a name="my-projects">&nbsp;</a>
@@ -52,15 +58,16 @@ const portfolio = (function () {
     <div class="div div--display--addProject"></div>
     </section>
 
+    <!-- CONTACT -->
     <section class="section section--display--contact" id="Contact">
       <div class="anchor">
         <a id="contact">&nbsp;</a>
         <h2 class="target-label">Help Yourself to Some Connects</h2>
       </div>
-      <ul class="fa-li">
-        <li><span class="fa-li"><i class="fas fa-cookie-bite"></i></span>LinkedIn</li>
-        <li><span class="fa-li"><i class="fas fa-cookie-bite"></i></span>Github</li>
-        <li><span class="fa-li"><i class="fas fa-cookie-bite"></i></span>phoebebasilio@gmail.com</li>
+      <ul class="fa-ul">
+        <li><a href="https://www.linkedin.com/in/phoebemlaw/"><span class="fa-li"><i class="fas fa-cookie"></i></span>LinkedIn</li><a>
+        <li><a href="https://github.com/shiningjustice/"><span class="fa-li"><i class="fas fa-cookie-bite"></i></span>Github</li></a
+        <li><a href="mailto:phoebebasilio@gmail.com">Email (phoebebasilio@gmail.com)</li></a>
       </ul>
     </section>
   `);
@@ -95,7 +102,9 @@ const portfolio = (function () {
     return projectString.join('');
   }; 
 
+
   const generateProjectHtml = function (name, subtitle, imageUrl, description, skillsApplied, liveSiteUrl, githubUrl) {
+    let skillsFormatted = generateSkills(skillsApplied);
     console.log('generateProjectHtml ran');
     return  `
       <div class="div project-button div--size--contain div--style--box div--overlay--text">
@@ -104,11 +113,22 @@ const portfolio = (function () {
       </div>
       <div class="div div--display--toggle hidden">
           <p>${description}<p>
-          <div>${skillsApplied}</div>
-          <div><a href="${liveSiteUrl}">Live Site</a></div>
-          <div><a href="${githubUrl}">Github</a></div>
+          <div class="div--justify--spaceAround">${skillsFormatted}</div>
+          <div class="div--justify--spaceAround">
+            <div><a href="${liveSiteUrl}">View Live Site</a></div>
+            <div><a href="${githubUrl}">View Github</a></div>
+          </div>
       </div>
     `;
+  };
+
+  const generateSkills = function (skillsArray) {
+    let skillsFormatted = [];
+    skillsArray.forEach(skill => {
+      skillsFormatted.push(`<div>${skill}</div>`);
+      console.log(skill);
+    });
+    return skillsFormatted.join('');
   };
 
   const handleAbout2 = function () {
@@ -134,12 +154,7 @@ const portfolio = (function () {
     });
   };
 
-  // //incomplete pbtag
-  // const toggleDisplayProjectExpanded = function (projectButton) {
-  //   $('projectButton').toggleClass('hidden');
-  // };
-
-  const callAllHandlers = function () {
+  const setAllHandlers = function () {
     handleAbout2();
     handleProjectExpanded();
   };
@@ -147,22 +162,6 @@ const portfolio = (function () {
 
   return {
     render,
-    callAllHandlers
+    setAllHandlers
   };
 })();
-
-// var text = 'Widget World';
-
-// var textElements = text.split("").map(function(c) {
-//   return $('<span id="' + c + '">' + c + '</span>');
-// });
-
-// var el = $('#letters');
-// var delay = 50; // Tune this for different letter delays.
-// textElements.forEach(function(e, i) {
-//   el.append(e);
-//   e.hide();
-//   setTimeout(function() {
-//     e.fadeIn(300);
-//   }, 100 + i * delay);
-// });

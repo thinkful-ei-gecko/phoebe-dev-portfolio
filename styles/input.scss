@@ -1,55 +1,55 @@
 // VARIABLES
-$font-stack-1: 'Cantata One', sans-serif;
-$font-stack-2: 'Cutive Mono', sans-serif;
-$font-stack-3: 'Open Sans', sans serif;
+//brighter-colorful https://coolors.co/052f5f-005377-06a77d-d5c67a-f1a208
+// $color-1: #052F5F;
+// $color-2: #005377;
+// $color-3: #06A77D;
+// $color-3: #D5C67A;
+// $color-5: #F1A208;
+//darker-colorful https://coolors.co/052f5f-007596-06aa74-e0d184-c47c00
+$color-3: #052F5F;
+$blue: #007596;
+$green: #06aa74;
+$yellow: #e0d184;
+$orange: #c47c00;
+//darker-greyscale https://coolors.co/0d0d0d-404040-737373-a6a6a6-f2f2f2
+$color-1: #0d0d0d;
+$color-2: #404040;
+$color-3: #737373;
+$color-4: #bdbdbd;
+$color-5: #f2f2f2;
 
-$box-outline: 1pt black dashed;
+$font-stack-1: 'Cutive Mono', sans-serif;
+$font-stack-2: 'Open Sans', sans serif;
+
+$box-outline: 1pt $color-1 dashed;
 $box-small-padding: .5rem .8rem;
 $box-large-padding: .8rem .8rem;
 $box-margin: 0;
-$box-child-background: grey;
-
-//brighter-colorful https://coolors.co/052f5f-005377-06a77d-d5c67a-f1a208
-$color-1: #052F5F;
-$color-2: #005377;
-$color-3: #06A77D;
-$color-4: #D5C67A;
-$color-5: #F1A208;
-//darker-colorful https://coolors.co/052f5f-007596-06aa74-e0d184-c47c00
-// @color-1: #052F5F;
-// @color-2: #007596;
-// @color-3: #06aa74;
-// @color-4: #e0d184;
-// @color-5: #c47c00;
-//greyscale https://coolors.co/f2f2f2-f2f2f2-bfbfbf-8c8c8c-737373
-// @color-1: #F2F2F2;
-// @color-2: #F2F2F2;
-// @color-3: #BFBFBF;
-// @color-4: #8C8C8C;
-// @color-5: #737373;
-//darker-greyscale https://coolors.co/0d0d0d-404040-737373-a6a6a6-f2f2f2
-// @color-1: #0d0d0d;
-// @color-2: #404040;
-// @color-3: #737373;
-// @color-4: #a6a6a6;
-// @color-5: #f2f2f2;
-//warm-colors https://coolors.co/402b23-8c3030-56736d-bfd9d6-95bfbb
-// @color-1: #402b23;
-// @color-2: #8c3030;
-// @color-3: #56736d;
-// @color-4: #bfd9d6;
-// @color-5: #95bfbb;
-//cold-warm-colors https://coolors.co/244035-734e39-485958-7b848c-bfada8
-// @color-1: #244035;
-// @color-2: #734e39;
-// @color-3: #485958;
-// @color-4: #7b848c;
-// @color-5: #bfada8;
+$box-child-background: $color-4;
 
 //EXTEND/INHERITANCE
 // %reset-ul {
 
 // }
+
+//--LEAST IMPORTANT ALL-ENCOMPASSING STYLES
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: $color-5;
+  * {
+    font-family: $font-stack-2;
+  }
+}
+
+main {
+  padding: 10px;
+}
 
 //----BY STRUCTURE----
 
@@ -57,7 +57,7 @@ $color-5: #F1A208;
 nav {
   position: sticky;
   top: 0;
-  background-color: #333;
+  background-color: $color-1;
   opacity: 1;
   z-index: 1;
   ul {
@@ -72,8 +72,8 @@ nav {
     align-items: flex-end;
     a {
       display: block;
-      color: white;
-      font-family: $font-stack-2;
+      color: $color-5;
+      font-family: $font-stack-1;
       text-align: center;
       padding: 10px 16px;
       text-decoration: none;
@@ -94,10 +94,14 @@ nav {
     width: 100%;
   }
   em {
-    font-family: $font-stack-2;
+    font-family: $font-stack-1;
     font-size: 1.15rem;
     font-weight: 600;
     font-style: italic;
+  }
+  em:hover {
+    color: $yellow;
+    font-size: 1.5em;
   }
   section {
     background: $box-child-background;
@@ -105,18 +109,23 @@ nav {
 }
 .p--open--about2 {
   display: inline-block;
-  font-family: $font-stack-2;
+  font-family: $font-stack-1;
   font-style: italic;
   font-weight: 600;
   outline: $box-outline;
-  padding: $box-small-padding;
-  margin: $box-margin;
+  padding: $box-large-padding;
+  margin: 0;
 }
 .p--style--tDecoration {
   text-decoration: line-through;
 }
 .section--display--about2 {
   background-color: $box-child-background;
+  margin: 0 0 20px 0;
+  padding: 1rem;
+  h2 {
+    margin: 0;
+  }
 }
 .a--display--vertical {
   float: right;
@@ -135,11 +144,6 @@ nav {
   //div--overlay--text
   text-align: center;
 }
-.img--size--fit {
-  display: inline;
-  max-height: 100%;
-  max-width: 100%;
-}
 .h3--justifyAlign--center {
   position: absolute;
   top: 50%;
@@ -150,37 +154,36 @@ nav {
   padding: .8rem;
   background-color: $box-child-background;
 }
-
+.div--justify--spaceAround {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 0 20px 0;
+}
 
 //CONTACT
-ul.fa-li li:before {
-  font-family: 'FontAwesome';
-  content: '\f564';
-  margin:0 5px 0 -15px;
+#contact {
+  min-height: 100vh;
+}
+ul.fa-ul {
+  list-style-type: none;
+  a {
+    text-decoration: none;
+    color: $color-3;
+  }
+  li {
+    padding: 0 0 10px 0;
+  }
+  li:hover {
+    color: $yellow;
+  }
 }
 
 //----BY ATTRIBUTE----
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  * {
-    font-family: $font-stack-3
-  }
-  
-}
-
-main {
-  padding: 10px;
-}
-
 .anchor {
-  position: relative;
+  height: 3.2rem;
   width: 100%;
-  height: 2rem;
+  padding: 1rem 0 0 0;
+  position: relative;
   display: inline-block;
 }
 
@@ -197,11 +200,11 @@ main {
 }
 
 h1, h2 {
-  font-family: $font-stack-2;  
+  font-family: $font-stack-1;  
 }
 
 h3 {
-  font-family: $font-stack-2;
+  font-family: $font-stack-1;
   font-style: italic;
 }
 
@@ -209,10 +212,95 @@ h3 {
   font-size: .8rem;
 }
 
-section {
-  min-height: 100vh;
-}
-
 .hidden {
   display: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+a:hover, nav.a--display--vertical:hover, a:hover, .project-button:hover, .p--open--about2:hover {
+  color: $yellow;
+  transform: translate(2px, 2px);
+}
+
+a, nav.a--display--vertical, .project-button, .p--open--about2 {
+  color: $color-3;
+}
+
+@media screen and (min-width: 425px) {  
+  nav ul {
+    height: 40px;
+  }
+
+  .anchor a {
+    top: -40px;
+  }
+
+  .li--width--contain{
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {  
+  nav {
+    position: sticky;
+    top: 0;
+    padding: 0 0 0 0;
+    background-color: $color-1;
+    opacity: 1;
+    z-index: 1;
+    ul {
+      list-style-type: none;
+      max-width: 40rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0;
+      overflow: hidden;
+      height: 35px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      a {
+        display: block;
+        color: $color-5;
+        font-family: $font-stack-1;
+        text-align: center;
+        padding: 10px 16px;
+        text-decoration: none;
+      }
+    }
+  }
+  .li--width--contain {
+    display: inline;
+    position: fixed;
+    margin-left: 0;
+    top: 0; left: 0;
+  }
+
+  main {
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }  
+  
+  .anchor {
+    height: 5rem;
+  }
+
+  ul.fa-ul {
+    margin: 0 0 0 20px;
+  }
+
+   
+
+  //make the logo go to the left haha
+  //contacts remove padding 
 }
