@@ -25,7 +25,7 @@ $box-outline: 1pt $color-1 dashed;
 $box-small-padding: .5rem .8rem;
 $box-large-padding: .8rem .8rem;
 $box-margin: 0;
-$box-child-background: $color-4;
+$longerText-background-color: $color-4;
 
 //EXTEND/INHERITANCE
 // %reset-ul {
@@ -104,7 +104,7 @@ nav {
     font-size: 1.5em;
   }
   section {
-    background: $box-child-background;
+    background: $longerText-background-color;
   }
 }
 .p--open--about2 {
@@ -120,7 +120,7 @@ nav {
   text-decoration: line-through;
 }
 .section--display--about2 {
-  background-color: $box-child-background;
+  background-color: $longerText-background-color;
   margin: 0 0 20px 0;
   padding: 1rem;
   h2 {
@@ -133,10 +133,13 @@ nav {
 
 
 //WORK
-.project-button {
+.h3--justifyAlign--center {
+  margin-bottom: 0; 
+}
+.project-box {
   //.div--style--box
   padding: $box-large-padding;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem 2rem;
   outline: $box-outline;
   //.div--size--contain 
   position: relative; //also for overlay--text
@@ -144,20 +147,29 @@ nav {
   //div--overlay--text
   text-align: center;
 }
-.h3--justifyAlign--center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.div--display--toggle {
-  padding: .8rem;
-  background-color: $box-child-background;
+.div--backgroundColor--longerText {
+  background-color: $longerText-background-color;
 }
 .div--justify--spaceAround {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 0 0 20px 0;
+  font-family: $font-stack-1;
+}
+.div--spacing--upMarginTop {
+  margin: 2rem .5rem 1rem .5rem;
+}
+.div--font--font1Italic {
+  font-style: italic;
+}
+.a--format-removeStyle {
+  padding: 10px;
+  font-family: $font-stack-1;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  background-color: $color-1;
+  color: white;
 }
 
 //CONTACT
@@ -165,22 +177,32 @@ nav {
   min-height: 100vh;
 }
 ul.fa-ul {
+  margin-top: 50px;
   list-style-type: none;
   a {
+    padding: 10px;
+    font-family: $font-stack-1;
+    height: 100%;
+    width: 100%;
     text-decoration: none;
-    color: $color-3;
+    background-color: $color-1;
+    color: white;
   }
   li {
-    padding: 0 0 10px 0;
+    padding: 0 0 2rem 0;
   }
   li:hover {
     color: $yellow;
   }
 }
+.fa-cookie, .fa-cookie-bite {
+  font-size: 150%;
+  color: $yellow;
+}
 
 //----BY ATTRIBUTE----
 .anchor {
-  height: 3.2rem;
+  height: 2rem;
   width: 100%;
   padding: 1rem 0 0 0;
   position: relative;
@@ -199,12 +221,11 @@ ul.fa-ul {
   margin: 0;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: $font-stack-1;  
 }
 
 h3 {
-  font-family: $font-stack-1;
   font-style: italic;
 }
 
@@ -222,12 +243,13 @@ img {
   height: auto;
 }
 
-a:hover, nav.a--display--vertical:hover, a:hover, .project-button:hover, .p--open--about2:hover {
+a:hover, nav.a--display--vertical:hover, div.div--transform--onHover:hover, a--transform--hover:hover, .li--transform--hover:hover .p--open--about2:hover {
   color: $yellow;
   transform: translate(2px, 2px);
+  cursor: pointer;
 }
 
-a, nav.a--display--vertical, .project-button, .p--open--about2 {
+a, nav.a--display--vertical, .p--open--about2 {
   color: $color-3;
 }
 
@@ -243,8 +265,16 @@ a, nav.a--display--vertical, .project-button, .p--open--about2 {
   .li--width--contain{
     display: none;
   }
-}
 
+  .h3--justifyAlign--center {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 456px) {  
+  ul.fa-ul {
+    margin-top: 25px;
+  }
+}
 @media screen and (min-width: 1024px) {  
   nav {
     position: sticky;
@@ -292,15 +322,22 @@ a, nav.a--display--vertical, .project-button, .p--open--about2 {
   }  
   
   .anchor {
-    height: 5rem;
+    height: 4rem;
   }
 
   ul.fa-ul {
-    margin: 0 0 0 20px;
+    margin: 0 0 0 2rem;
+  }
+}
+
+@media screen and (min-width: 1600px) {  
+  ul {
+    max-width: 40rem;
   }
 
-   
-
-  //make the logo go to the left haha
-  //contacts remove padding 
+  .li--width--contain {
+    display: inline;
+    position: relative;
+    margin-right: 18rem;
+  }
 }

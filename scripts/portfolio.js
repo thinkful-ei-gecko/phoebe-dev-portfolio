@@ -29,7 +29,7 @@ const portfolio = (function () {
       <p class="p p--open--about2 p--style--italic">More <i class="fas fa-chevron-down"></i></p>
     
       <!-- ABOUT ME 2/2 -->
-      <section class="section section--display--about2 .div--justify--spaceAround hidden">
+      <section class="section section--display--about2 hidden">
         <h2>Who am I?</h2>
         <p class="p--style--tDecoration">24601</p>
         <h3>tl;dr</h3>
@@ -65,9 +65,9 @@ const portfolio = (function () {
         <h2 class="target-label">Help Yourself to Some Connects</h2>
       </div>
       <ul class="fa-ul">
-        <li><a href="https://www.linkedin.com/in/phoebemlaw/"><span class="fa-li"><i class="fas fa-cookie"></i></span>LinkedIn</li><a>
-        <li><a href="https://github.com/shiningjustice/"><span class="fa-li"><i class="fas fa-cookie-bite"></i></span>Github</li></a
-        <li><a href="mailto:phoebebasilio@gmail.com">Email (phoebebasilio@gmail.com)</li></a>
+        <li class="li--transform--hover"><a class="a--transform--hover" href="https://www.linkedin.com/in/phoebemlaw/"><span class="fa-li"><i class="fas fa-cookie"></i></span>LinkedIn</a></li>
+        <li class="li--transform--hover"><a class="a--transform--hover" href="https://github.com/shiningjustice/"><span class="fa-li"><i class="fas fa-cookie-bite"></i></span>Github</a></li>
+        <li class="li--transform--hover"><a class="a--transform--hover" href="mailto:phoebebasilio@gmail.com">Email (phoebebasilio@gmail.com)</a></li>
       </ul>
     </section>
   `);
@@ -102,22 +102,21 @@ const portfolio = (function () {
     return projectString.join('');
   }; 
 
-
   const generateProjectHtml = function (name, subtitle, imageUrl, description, skillsApplied, liveSiteUrl, githubUrl) {
     let skillsFormatted = generateSkills(skillsApplied);
     console.log('generateProjectHtml ran');
     return  `
-      <div class="div project-button div--size--contain div--style--box div--overlay--text">
+      <h3 class="h3 h3--justifyAlign--center">${name}: ${subtitle}</h3>
+      <div class="div project-box div--size--contain div--style--box div--overlay--text">
         <img src="${imageUrl}" alt="A screenshot of Phoebe's ${name} project" class="img--size--fit">
-        <h3 class="h3 h3--justifyAlign--center">${name}: ${subtitle}</h3>
-      </div>
-      <div class="div div--display--toggle hidden">
+        <div class="div div--backgroundColor--longerText">
           <p>${description}<p>
-          <div class="div--justify--spaceAround">${skillsFormatted}</div>
-          <div class="div--justify--spaceAround">
-            <div><a href="${liveSiteUrl}">View Live Site</a></div>
-            <div><a href="${githubUrl}">View Github</a></div>
+          <div class="div div--justify--spaceAround div--font--font1Italic">${skillsFormatted}</div>
+          <div class="div--justify--spaceAround div--spacing--upMarginTop">
+            <div class="div div--transform--onHover"><a class="a--format-removeStyle" href="${liveSiteUrl}">View Live Site</a></div>
+            <div class="div div--transform--onHover"><a class="a--format-removeStyle" href="${githubUrl}">View Github</a></div>
           </div>
+        </div>
       </div>
     `;
   };
@@ -148,15 +147,8 @@ const portfolio = (function () {
     $('.section--display--about2').toggleClass('hidden');
   };
 
-  const handleProjectExpanded = function () {
-    $('.section--display--add').on('click', '.div--style--box', function (event) {
-      $('.div--display--toggle').toggleClass('hidden');
-    });
-  };
-
   const setAllHandlers = function () {
     handleAbout2();
-    handleProjectExpanded();
   };
 
 

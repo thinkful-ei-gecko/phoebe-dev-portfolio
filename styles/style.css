@@ -94,31 +94,46 @@ nav ul a {
   float: right;
 }
 
-.project-button {
+.h3--justifyAlign--center {
+  margin-bottom: 0;
+}
+
+.project-box {
   padding: 0.8rem 0.8rem;
-  margin: 0 0 1rem 0;
+  margin: 0 0 1rem 2rem;
   outline: 1pt #0d0d0d dashed;
   position: relative;
   overflow: hidden;
   text-align: center;
 }
 
-.h3--justifyAlign--center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.div--display--toggle {
-  padding: 0.8rem;
+.div--backgroundColor--longerText {
   background-color: #bdbdbd;
 }
 
 .div--justify--spaceAround {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin: 0 0 20px 0;
+  font-family: "Cutive Mono", sans-serif;
+}
+
+.div--spacing--upMarginTop {
+  margin: 2rem 0.5rem 1rem 0.5rem;
+}
+
+.div--font--font1Italic {
+  font-style: italic;
+}
+
+.a--format-removeStyle {
+  padding: 10px;
+  font-family: "Cutive Mono", sans-serif;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  background-color: #0d0d0d;
+  color: white;
 }
 
 #contact {
@@ -126,21 +141,32 @@ nav ul a {
 }
 
 ul.fa-ul {
+  margin-top: 50px;
   list-style-type: none;
 }
 ul.fa-ul a {
+  padding: 10px;
+  font-family: "Cutive Mono", sans-serif;
+  height: 100%;
+  width: 100%;
   text-decoration: none;
-  color: #737373;
+  background-color: #0d0d0d;
+  color: white;
 }
 ul.fa-ul li {
-  padding: 0 0 10px 0;
+  padding: 0 0 2rem 0;
 }
 ul.fa-ul li:hover {
   color: #e0d184;
 }
 
+.fa-cookie, .fa-cookie-bite {
+  font-size: 150%;
+  color: #e0d184;
+}
+
 .anchor {
-  height: 3.2rem;
+  height: 2rem;
   width: 100%;
   padding: 1rem 0 0 0;
   position: relative;
@@ -159,12 +185,11 @@ ul.fa-ul li:hover {
   margin: 0;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: "Cutive Mono", sans-serif;
 }
 
 h3 {
-  font-family: "Cutive Mono", sans-serif;
   font-style: italic;
 }
 
@@ -182,12 +207,13 @@ img {
   height: auto;
 }
 
-a:hover, nav.a--display--vertical:hover, a:hover, .project-button:hover, .p--open--about2:hover {
+a:hover, nav.a--display--vertical:hover, div.div--transform--onHover:hover, a--transform--hover:hover, .li--transform--hover:hover .p--open--about2:hover {
   color: #e0d184;
   transform: translate(2px, 2px);
+  cursor: pointer;
 }
 
-a, nav.a--display--vertical, .project-button, .p--open--about2 {
+a, nav.a--display--vertical, .p--open--about2 {
   color: #737373;
 }
 
@@ -202,6 +228,15 @@ a, nav.a--display--vertical, .project-button, .p--open--about2 {
 
   .li--width--contain {
     display: none;
+  }
+
+  .h3--justifyAlign--center {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 456px) {
+  ul.fa-ul {
+    margin-top: 25px;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -253,11 +288,22 @@ a, nav.a--display--vertical, .project-button, .p--open--about2 {
   }
 
   .anchor {
-    height: 5rem;
+    height: 4rem;
   }
 
   ul.fa-ul {
-    margin: 0 0 0 20px;
+    margin: 0 0 0 2rem;
+  }
+}
+@media screen and (min-width: 1600px) {
+  ul {
+    max-width: 40rem;
+  }
+
+  .li--width--contain {
+    display: inline;
+    position: relative;
+    margin-right: 18rem;
   }
 }
 
